@@ -422,8 +422,10 @@ public class Camera {
   }
 
   public void startPreview() throws CameraAccessException {
+    if (pictureImageReader != null) // <= add this line
     createCaptureSession(CameraDevice.TEMPLATE_PREVIEW, pictureImageReader.getSurface());
-  }
+    }
+}
 
   public void startPreviewWithImageStream(EventChannel imageStreamChannel)
       throws CameraAccessException {
